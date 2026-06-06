@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap');
+
+:root {
+    --bg:        oklch(0.10 0.05 265);
+    --bg-card:   oklch(0.24 0.09 265);
+    --bg-card2:  oklch(0.18 0.07 265);
+    --surface:   oklch(0.28 0.07 265);
+    --surface2:  oklch(0.28 0.07 265);
+    --neon:      oklch(0.85 0.22 210);
+    --primary:   oklch(0.72 0.18 230);
+    --accent:    oklch(0.85 0.22 210);
+    --accent2:   oklch(0.78 0.2 200);
+    --danger:    oklch(0.65 0.25 25);
+    --text:      oklch(0.95 0.04 230);
+    --muted:     oklch(0.75 0.05 230);
+    --border:    oklch(0.5 0.15 240);
+    --prose:     oklch(0.88 0.03 230);
+    --prose-dim: oklch(0.72 0.04 230);
+    --deep:      oklch(0.10 0.05 265);
+}
+
+* {
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: 'VT323', monospace !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(color-mix(in oklab, var(--neon) 12%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in oklab, var(--neon) 12%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.13) 0px,
+        rgba(0,0,0,0.13) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+#intro-screen,
+#screen-shh,
+#screen-objective,
+#screen-result,
+#screen-beginner {
+    background: var(--bg) !important;
+}
+
+#intro-screen::after,
+#screen-shh::after,
+#screen-objective::after,
+#screen-result::after,
+#screen-beginner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.13) 0px,
+        rgba(0,0,0,0.13) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+#intro-screen > *,
+#screen-shh > *,
+#screen-objective > *,
+#screen-result > *,
+#screen-beginner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-title,
+.shh-word,
+.lesson-title,
+.obj-title,
+.ex-title,
+.result-score,
+.beg-title,
+.manual-title,
+.learn-name,
+.explorer-group-name,
+.reagent-drawer-title,
+.mech-modal-title,
+.panel-title,
+.step-heading,
+.main-title,
+.apps-title,
+.exp-name,
+.reaction-name,
+.predict-modal-title,
+.hotspot-card-title,
+.dyk-title {
+    font-family: 'Fraunces', serif !important;
+    font-weight: 300 !important;
+    color: var(--text) !important;
+    letter-spacing: 0 !important;
+    text-shadow: none !important;
+}
+
+.intro-title,
+.shh-word,
+.manual-title,
+.result-score,
+.explorer-group-name,
+.reagent-drawer-title,
+.mech-modal-title,
+.panel-title,
+.exp-name {
+    color: var(--neon) !important;
+    text-shadow: 0 0 10px var(--neon), 0 0 25px color-mix(in oklab, var(--neon) 40%, transparent) !important;
+}
+
+em,
+.ht,
+.ht2,
+.dyk-text .ht,
+.step-body-text .ht,
+.step-body-text .ht2,
+.exp-text .ht,
+.app-card-body .ht,
+.mech-step-body .ht,
+.reveal-block .ht,
+.reveal-block .ht2 {
+    color: var(--neon) !important;
+    -webkit-text-fill-color: var(--neon);
+    text-shadow: 0 0 4px color-mix(in oklab, var(--neon) 40%, transparent);
+}
+
+.shh-tag,
+.obj-tag,
+.ex-tag,
+.result-label,
+.learn-tag,
+.sandbox-title,
+.roadmap-section-title,
+.explorer-section-title,
+.reagent-drawer-type,
+.mech-modal-tag,
+.panel-step-tag,
+.step-section-label,
+.eq-label,
+.main-tag,
+.app-card-num,
+.reaction-type,
+.section-label,
+.lesson-tag,
+.nav-label {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 8px !important;
+    letter-spacing: 0.15em !important;
+    color: var(--neon) !important;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px var(--neon);
+}
+
+p,
+span,
+div,
+li,
+.shh-sub,
+.obj-desc,
+.ex-desc,
+.learn-text,
+.beg-text,
+.manual-subtitle,
+.explorer-placeholder-text,
+.pathway-note,
+.reagent-warning,
+.reagent-rxn-note,
+.mech-overview,
+.mech-step-body,
+.step-body-text,
+.main-intro,
+.apps-subtitle,
+.exp-text,
+.app-card-body,
+.reveal-block,
+.intuition-note,
+.scope-item,
+.feature-item {
+    font-family: 'VT323', monospace;
+}
+
+.btn-primary,
+.btn-ghost,
+.begin-btn,
+.intro-btn,
+.shh-btn,
+.beg-next,
+.reaction-nav-btn,
+.rxn-tab,
+.predict-trigger-btn,
+.predict-close,
+.predict-submit,
+.reset-btn,
+.ghost-btn,
+.name-tag,
+.unlock-chip,
+.locked-chip,
+.sandbox-node,
+.reagent-pill,
+.reagent-drawer-close,
+.mech-modal-close,
+.panel-close,
+.mcq-option {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+    background: var(--surface) !important;
+    color: var(--muted) !important;
+    border: none !important;
+    box-shadow:
+        0 -4px 0 0 var(--border),
+        0  4px 0 0 var(--border),
+        -4px 0 0 0 var(--border),
+         4px 0 0 0 var(--border) !important;
+}
+
+.btn-primary,
+.begin-btn,
+.intro-btn,
+.shh-btn,
+.beg-next,
+.predict-submit {
+    background: var(--primary) !important;
+    color: oklch(0.12 0.06 265) !important;
+    box-shadow:
+        0 -4px 0 0 var(--neon),
+        0  4px 0 0 var(--neon),
+        -4px 0 0 0 var(--neon),
+         4px 0 0 0 var(--neon),
+        0 0 24px color-mix(in oklab, var(--neon) 50%, transparent) !important;
+}
+
+.btn-primary:hover,
+.btn-ghost:hover,
+.intro-btn:hover,
+.shh-btn:hover,
+.beg-next:hover,
+.rxn-tab:hover,
+.reaction-nav-btn:hover,
+.name-tag:hover,
+.reagent-pill.clickable:hover,
+.mcq-option:hover:not(:disabled) {
+    transform: translateY(-2px);
+    color: var(--text) !important;
+}
+
+.active,
+.correct,
+.open .mech-step-num,
+.rxn-tab.active,
+.dash-card.active,
+.app-card.open,
+.roadmap-card.active,
+.reaction-nav-btn.active {
+    border-color: var(--neon) !important;
+}
+
+.screen,
+#screen-exercise,
+#screen-manual,
+.main-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.name-bank,
+.structure-card,
+.learn-modal,
+.sandbox-container,
+.roadmap-container,
+.roadmap-card,
+.explorer-panel,
+.pathway-card,
+.reagent-drawer,
+.reagent-rxn-item,
+.mech-modal,
+.mech-step,
+#lesson-panel,
+.resonance-modal,
+.diagram-wrap,
+.equation-box,
+.dash-card,
+.dash-explorer,
+.app-card,
+.app-diagram,
+.scope-item,
+.feature-item,
+.reveal-block,
+.predict-modal,
+.hotspot-card,
+.dyk-box {
+    background: var(--bg-card) !important;
+    border: none !important;
+    box-shadow:
+        0 -4px 0 0 var(--border),
+        0  4px 0 0 var(--border),
+        -4px 0 0 0 var(--border),
+         4px 0 0 0 var(--border) !important;
+}
+
+.structure-svg-wrap,
+.learn-svg-wrap,
+.diagram-wrap,
+.app-diagram,
+.equation-box,
+.sandbox-row,
+.roadmap-card,
+.pathway-card,
+.reagent-rxn-item,
+.mech-step,
+.scope-item,
+.feature-item,
+.reveal-block,
+.intuition-note {
+    background: var(--bg-card2) !important;
+}
+
+.structure-drop.dragover,
+.mcq-option:hover:not(:disabled),
+.drop-target.dragover {
+    background: color-mix(in oklab, var(--neon) 5%, transparent) !important;
+    border-color: var(--neon) !important;
+}
+
+.structure-drop.correct,
+.mcq-option.correct,
+.drop-target.correct,
+.sandbox-node.product,
+.reagent-pill.green,
+.exp-pill.green {
+    color: var(--accent2) !important;
+    border-color: var(--accent2) !important;
+    background: color-mix(in oklab, var(--accent2) 6%, transparent) !important;
+}
+
+.structure-drop.wrong,
+.mcq-option.wrong,
+.drop-target.wrong,
+.reagent-pill.wont-work,
+.pathway-note.danger,
+.exp-pill.red {
+    color: var(--danger) !important;
+    border-color: var(--danger) !important;
+    background: color-mix(in oklab, var(--danger) 6%, transparent) !important;
+}
+
+.panel-progress-bar,
+.progress-fill {
+    background: var(--neon) !important;
+    box-shadow: 0 0 6px var(--neon);
+}
