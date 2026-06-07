@@ -4,13 +4,15 @@ import { resolve } from 'path';
 
 const config = defineConfig({
   plugins: [tanstackStart()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),  // ← this is what's missing
+    },
+  },
   build: {
     rollupOptions: {
       input: {
-        // Your main app entry point
-        main: resolve(__dirname, 'index.html'), 
-        
-        // Your 7 custom chemistry lessons mapped perfectly
+        main: resolve(__dirname, 'index.html'),
         lesson1: resolve(__dirname, 'public/lessons/lesson1.html'),
         lesson2: resolve(__dirname, 'public/lessons/lesson2.html'),
         lesson3: resolve(__dirname, 'public/lessons/3.html'),
@@ -23,5 +25,4 @@ const config = defineConfig({
   },
 });
 
-// This explicit export is exactly what Vite is missing!
 export default config;
