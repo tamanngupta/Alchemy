@@ -6,13 +6,12 @@ const config = defineConfig({
   plugins: [tanstackStart()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),  // ← this is what's missing
+      '@': resolve(__dirname, './src'),
     },
   },
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
         lesson1: resolve(__dirname, 'public/lessons/lesson1.html'),
         lesson2: resolve(__dirname, 'public/lessons/lesson2.html'),
         lesson3: resolve(__dirname, 'public/lessons/3.html'),
