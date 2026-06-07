@@ -1,9 +1,15 @@
 {
+  "version": 2,
   "cleanUrls": true,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/lessons/(.*)",
-      "destination": "/lessons/$1"
+      "src": "/lessons/(.*)",
+      "dest": "/lessons/$1",
+      "continue": false
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
