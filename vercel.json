@@ -1,4 +1,9 @@
 {
-  "buildCommand": "npm run build",
-  "framework": null
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/lessons/(.*)",
+      "destination": "/lessons/$1"
+    }
+  ]
 }
